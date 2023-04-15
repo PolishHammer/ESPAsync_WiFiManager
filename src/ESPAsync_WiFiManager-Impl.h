@@ -449,6 +449,8 @@ void ESPAsync_WiFiManager::setupConfigPortal()
                                     std::placeholders::_1)).setFilter(ON_AP_FILTER);
   server->onNotFound (std::bind(&ESPAsync_WiFiManager::handleNotFound,        this, std::placeholders::_1));
 
+  AsyncElegantOTA.begin(server);
+
   server->begin(); // Web server start
 
   LOGWARN(F("HTTP server started"));

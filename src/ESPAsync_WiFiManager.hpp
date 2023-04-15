@@ -220,6 +220,7 @@
 #endif
 
 #include <ESPAsyncDNSServer.h>
+#include <AsyncElegantOTA.h>
 
 #include <memory>
 #undef min
