@@ -58,8 +58,8 @@
     {
       "name": "AsyncElegantOTA",
       "version": "https://github.com/ayushsharma82/AsyncElegantOTA.git",
-      "platforms": [ "espressif32"]
-    },
+      "platforms": ["espressif8266", "espressif32"]
+    }
   ],
   "license": "MIT",
   "frameworks": "*",
