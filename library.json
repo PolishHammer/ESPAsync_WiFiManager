@@ -12,9 +12,9 @@
   "repository":
   {
     "type": "git",
-    "url": "https://github.com/khoih-prog/ESPAsync_WiFiManager"
+    "url": "https://github.com/PolishHammer/ESPAsync_WiFiManager.git"
   },
-  "homepage": "https://github.com/khoih-prog/ESPAsync_WiFiManager",
+  "homepage": "https://github.com/PolishHammer/ESPAsync_WiFiManager.git",
   "export": {
     "exclude": [
       "linux",
@@ -35,7 +35,7 @@
     },
     {
       "name": "ESP Async WebServer",
-      "version": "https://github.com/khoih-prog/ESPAsyncWebServer",
+      "version": "https://github.com/PolishHammer/ESPAsyncWebServer.git",
       "platforms": ["espressif8266", "espressif32"]
     },
     {
