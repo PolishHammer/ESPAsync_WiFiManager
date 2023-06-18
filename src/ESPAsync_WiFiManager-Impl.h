@@ -450,6 +450,14 @@ void ESPAsync_WiFiManager::setupConfigPortal()
                                     std::placeholders::_1)).setFilter(ON_AP_FILTER);
   server->onNotFound (std::bind(&ESPAsync_WiFiManager::handleNotFound,        this, std::placeholders::_1));
 
+  server->on("/ip", HTTP_GET, [](AsyncWebServerRequest *request)
+                {
+                  request->send(200, "text/plain", WiFi.localIP().toString());
+                  vTaskDelay(1000);
+                  if(WiFi.getMode() != WIFI_STA && WiFi.isConnected()){
+                    WiFi.mode(WIFI_STA);
+                  };});
+  
   AsyncElegantOTA.begin(server);
 
   server->begin(); // Web server start
@@ -947,7 +955,7 @@ bool ESPAsync_WiFiManager::startConfigPortal(char const *apName, char const *apP
 #endif
   }
 
-  WiFi.mode(WIFI_STA);
+  // WiFi.mode(WIFI_STA);
 
   if (TimedOut)
   {
@@ -963,8 +971,8 @@ bool ESPAsync_WiFiManager::startConfigPortal(char const *apName, char const *apP
   }
 
 #if !( USING_ESP32_S2 || USING_ESP32_C3 )
-  server->reset();
-  dnsServer->stop();
+  // server->reset();
+  // dnsServer->stop();
 #endif
 
   return  (WiFi.status() == WL_CONNECTED);
